@@ -1,4 +1,4 @@
-# SOC Homelab
+# Cybersecurity Homelab
 
 A hands-on cybersecurity home lab documenting real attack 
 simulations, detections, and incident investigations to 
