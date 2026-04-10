@@ -1,0 +1,119 @@
+# Kali Linux VM — Attack Machine
+
+## Overview
+Deployed Kali Linux as a dedicated attack machine virtual machine within the Proxmox homelab environment. Kali Linux serves as the offensive platform for simulating real-world attacks against target machines in the lab, generating authentic malicious traffic and logs that defensive tools like Splunk can detect and alert on. This mirrors the red team infrastructure commonly referenced in enterprise SOC environments when analyzing attacker behavior.
+
+---
+
+## VM Configuration
+
+| Component | Details |
+|---|---|
+| VM ID | 100 |
+| Hostname | kali |
+| Operating System | Kali Linux 2024.x x86_64 |
+| CPU | 2 Cores |
+| RAM | 4096 MB (4GB) |
+| Storage | 40GB VirtIO Disk |
+| Network | VirtIO Network Adapter |
+| Hypervisor | Proxmox VE 8.x |
+
+**Kali Linux VM Hardware Configuration**
+
+
+---
+
+## Why Kali Linux
+
+Kali Linux was selected as the attack platform for several reasons directly relevant to SOC analyst development:
+
+- **Industry standard offensive platform** — Kali is the most widely referenced attack distribution in enterprise security environments, threat intelligence reports, and SOC runbooks
+- **Pre-installed toolset** — ships with hundreds of security tools including Hydra, Nmap, Metasploit, Wireshark, and Burp Suite eliminating the need for manual tool installation
+- **Real attack simulation** — using the same tools actual threat actors use generates authentic attack patterns and logs that closely mirror what SOC analysts see in production environments
+- **MITRE ATT&CK alignment** — Kali tools map directly to documented MITRE ATT&CK techniques enabling precise framework-based documentation of simulated attacks
+
+---
+
+## Role In The Homelab
+
+Kali Linux operates as the **offensive node** in the homelab network. Its primary functions are:
+
+- Simulating brute force attacks against target machines using Hydra
+- Performing network reconnaissance using Nmap
+- Generating realistic malicious traffic that Splunk ingests and alerts on
+- Providing a platform for practicing offensive techniques to better understand defensive detection requirements
+```
+Kali Linux VM (Attacker)
+↓
+Launches attacks against target machines
+↓
+Generates authentic malicious logs and traffic
+↓
+Splunk detects and alerts on the activity
+↓
+SOC analyst investigates and responds
+```
+
+---
+
+## Pre-Installed Tools Relevant To This Project
+
+| Tool | Purpose | MITRE ATT&CK Relevance |
+|---|---|---|
+| **Hydra** | Brute force credential attacks | T1110 - Brute Force |
+| **Nmap** | Network scanning and reconnaissance | T1046 - Network Service Discovery |
+| **Metasploit** | Exploitation framework | Multiple techniques |
+| **Wireshark** | Packet capture and analysis | T1040 - Network Sniffing |
+| **Burp Suite** | Web application testing | T1190 - Exploit Public Facing Application |
+
+---
+
+## Installation Process
+
+### Step 1 — ISO Preparation
+Downloaded the Kali Linux 2024.x x86_64 Installer ISO from kali.org and uploaded directly to the Proxmox local storage pool via the ISO Images interface.
+
+### Step 2 — VM Creation
+Created a new VM in Proxmox with the configuration detailed in the table above. Selected VirtIO for both disk and network adapter to ensure optimal performance within the Proxmox virtualization environment.
+
+### Step 3 — OS Installation
+Booted the VM from the Kali ISO and proceeded through the graphical installer:
+- Selected guided disk partitioning using the full 40GB VirtIO disk
+- Configured a dedicated non-root user account for daily use
+- Installed the full Kali desktop environment with default tool selection
+- Installed GRUB bootloader to /dev/vda
+
+### Step 4 — First Boot Verification
+Successfully booted into the Kali Linux desktop environment confirming full graphical interface functionality and tool availability.
+
+📸 **Kali Linux Desktop — First Successful Boot**
+![Kali Desktop](paste-screenshot-2-here)
+
+---
+
+## Post-Installation Verification
+
+Confirmed the following after installation:
+
+- Full Kali desktop environment loading successfully
+- Network connectivity active within Proxmox environment
+- Core offensive tools accessible from the application menu
+- VM accessible via Proxmox console from MacBook browser
+
+---
+
+## Result
+
+A fully operational Kali Linux attack machine running as an isolated VM within Proxmox. This machine serves as the offensive platform for all attack simulations conducted in this homelab, providing authentic attack traffic and logs for defensive tool detection and SOC analyst investigation practice.
+
+---
+
+## Next Steps
+- Deploy Ubuntu Server VM as Splunk host and brute force target
+- Install and configure Splunk on Ubuntu Server
+- Begin brute force attack simulation using Hydra
+- Build Splunk detection rules for generated attack traffic
+
+---
+
+*Part of the [SOC Homelab](../../README.md)*
