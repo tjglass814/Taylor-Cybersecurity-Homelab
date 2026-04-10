@@ -20,7 +20,7 @@ Deployed Kali Linux as a dedicated attack machine virtual machine within the Pro
 
 **Kali Linux VM Hardware Configuration**
 
-(ADD PICTURE!!!)
+#(ADD PICTURE!!!)
 
 ---
 
@@ -87,7 +87,7 @@ Booted the VM from the Kali ISO and proceeded through the graphical installer:
 ### Step 4 — First Boot Verification
 Successfully booted into the Kali Linux desktop environment confirming full graphical interface functionality and tool availability.
 
-(ADD PICTURE!!!)
+#(ADD PICTURE!!!)
 
 
 ---
