@@ -20,6 +20,7 @@ Deployed Kali Linux as a dedicated attack machine virtual machine within the Pro
 
 **Kali Linux VM Hardware Configuration**
 
+(ADD PICTURE!!!)
 
 ---
 
@@ -86,7 +87,7 @@ Booted the VM from the Kali ISO and proceeded through the graphical installer:
 ### Step 4 — First Boot Verification
 Successfully booted into the Kali Linux desktop environment confirming full graphical interface functionality and tool availability.
 
-📸 **Kali Linux Desktop — First Successful Boot**
+(ADD PICTURE!!!)
 
 
 ---
@@ -107,13 +108,3 @@ Confirmed the following after installation:
 A fully operational Kali Linux attack machine running as an isolated VM within Proxmox. This machine serves as the offensive platform for all attack simulations conducted in this homelab, providing authentic attack traffic and logs for defensive tool detection and SOC analyst investigation practice.
 
 ---
-
-## Next Steps
-- Deploy Ubuntu Server VM as Splunk host and brute force target
-- Install and configure Splunk on Ubuntu Server
-- Begin brute force attack simulation using Hydra
-- Build Splunk detection rules for generated attack traffic
-
----
-
-*Part of the [SOC Homelab](../../README.md)*
