@@ -156,30 +156,24 @@ logged it to Splunk successfully.
 
 ---
 
-## Detection Rules
+## Investigation Queries
 
-### Rule 1 — Network Reconnaissance Detection
+These SPL queries were used to verify log flow, 
+confirm cross-source visibility, and investigate 
+the simulated attack. They serve as the foundation 
+for detection rules and automated alerts in future projects.
+
+### Query 1 — View OPNsense Firewall Activity
 index=main sourcetype=syslog
-| rex field=_raw "(?P<src_ip>\d+.\d+.\d+.\d+),10.10.10."
-| stats count by src_ip
-| where count > 10
-| sort -count
+| head 20
 
-### Rule 2 — Cross-Source Correlation
+### Query 2 — Cross-Source Log Verification
 index=main (sourcetype=syslog OR sourcetype=linux_secure)
 | stats count by sourcetype host
 
-### Rule 3 — Same Attacker IP In Both Sources
-index=main (sourcetype=syslog OR sourcetype=linux_secure)
-earliest=-15m
-| rex field=_raw "from (?P<src_ip>\d+.\d+.\d+.\d+)"
-| stats values(sourcetype) as sources count by src_ip
-| where mvcount(sources) > 1
-
-This final query is the foundation of BLIP-AI cross-source 
-correlation — finding the same attacker IP appearing in both 
-network and host logs simultaneously.
-
+### Query 3 — Search For Attacker IP In Firewall Logs
+index=main sourcetype=syslog earliest=-2m
+10.10.10.132
 ---
 
 ## Key Findings
