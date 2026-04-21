@@ -88,11 +88,12 @@ Used tcpdump on Ubuntu to confirm packets arriving from OPNsense:
 ```bash
 sudo tcpdump -i ens18 udp port 5514
 
+```
+
 This command listens directly on the lab network interface 
 and displays any UDP traffic arriving on port 5514 in real time.
 It confirmed packets were flowing from OPNsense before 
 troubleshooting Splunk.
-```
 
 Confirmed correct flow:
 OPNsense.internal > splunk-server.5514: UDP ✅
