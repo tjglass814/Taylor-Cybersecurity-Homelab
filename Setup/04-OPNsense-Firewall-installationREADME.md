@@ -26,9 +26,14 @@ visibility into all traffic between attack and target VMs.
 ### Lab Network (10.10.10.x)
 | Device | IP Address | Role |
 |---|---|---|
-| OPNsense LAN | 10.10.10.1 | Firewall — default gateway |
-| Ubuntu ens18 | 10.10.10.198 | Splunk SIEM — jump host |
+| OPNsense LAN | 10.10.10.1 | Firewall and default gateway |
+| Ubuntu ens18 | 10.10.10.198 | Splunk SIEM and jump host |
 | Kali Linux | 10.10.10.132 | Attack VM |
+
+### Traffic Flow
+All traffic between Kali and Ubuntu passes through OPNsense.
+OPNsense inspects, filters, and logs every connection.
+Logs ship to Splunk via syslog on UDP port 5514.
 
 ```
 
