@@ -36,15 +36,6 @@ OPNsense inspects, filters, and logs every connection.
 Logs ship to Splunk via syslog on UDP port 5514.
 
 ```
-Internet → Home Router → OPNsense WAN
-                              ↓
-                         [FIREWALL]
-                              ↓
-                       OPNsense LAN
-                         ↙       ↘
-               Kali Linux       Ubuntu/Splunk
-            10.10.10.132        10.10.10.198
----
 
 ## Environment
 
