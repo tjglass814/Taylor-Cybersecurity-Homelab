@@ -36,9 +36,6 @@ OPNsense inspects, filters, and logs every connection.
 Logs ship to Splunk via syslog on UDP port 5514.
 
 ```
-
-### Traffic Flow
-```
 Internet → Home Router → OPNsense WAN
                               ↓
                          [FIREWALL]
