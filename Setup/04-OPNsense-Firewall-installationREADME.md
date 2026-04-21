@@ -37,7 +37,6 @@ Logs ship to Splunk via syslog on UDP port 5514.
 
 ```
 ```
-
 ## Environment
 
 | Component | Value |
