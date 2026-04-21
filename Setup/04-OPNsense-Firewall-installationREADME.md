@@ -30,6 +30,8 @@ visibility into all traffic between attack and target VMs.
 | Ubuntu ens18 | 10.10.10.198 | Splunk SIEM — jump host |
 | Kali Linux | 10.10.10.132 | Attack VM |
 
+```
+
 ### Traffic Flow
 ```
 Internet → Home Router → OPNsense WAN
