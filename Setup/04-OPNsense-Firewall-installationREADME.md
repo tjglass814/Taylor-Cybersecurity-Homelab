@@ -34,8 +34,7 @@ visibility into all traffic between attack and target VMs.
 All traffic between Kali and Ubuntu passes through OPNsense.
 OPNsense inspects, filters, and logs every connection.
 Logs ship to Splunk via syslog on UDP port 5514.
-```
-```
+
 ## Environment
 
 | Component | Value |
