@@ -13,6 +13,7 @@ visibility into all traffic between attack and target VMs.
 - Provide a realistic enterprise-grade network architecture
 
 ## Network Architecture
+
 Internet
 ↓
 Home Router (192.168.1.1)
