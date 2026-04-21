@@ -174,6 +174,7 @@ index=main (sourcetype=syslog OR sourcetype=linux_secure)
 ### Query 3 — Search For Attacker IP In Firewall Logs
 index=main sourcetype=syslog earliest=-2m
 10.10.10.132
+
 ---
 
 ## Key Findings
