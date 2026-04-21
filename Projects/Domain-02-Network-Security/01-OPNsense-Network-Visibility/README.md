@@ -89,14 +89,7 @@ Used tcpdump on Ubuntu to confirm packets arriving from OPNsense:
 sudo tcpdump -i ens18 udp port 5514
 ```
 
-**Troubleshooting Note:**
-Initial configuration had a typo — port 4514 instead of 5514.
-Diagnosed using tcpdump which showed:
-OPNsense.internal > splunk-server.4514: UDP
-ICMP splunk-server udp port 4514 unreachable
-Corrected port number in OPNsense remote logging config and reapplied.
-
-Confirmed correct flow after fix:
+Confirmed correct flow:
 OPNsense.internal > splunk-server.5514: UDP ✅
 
 ---
