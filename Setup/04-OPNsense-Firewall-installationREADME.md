@@ -14,17 +14,32 @@ visibility into all traffic between attack and target VMs.
 
 ## Network Architecture
 
-Internet
-↓
-Home Router (192.168.1.1)
-↓
-OPNsense WAN (192.168.1.214)
-↓ [FIREWALL]
-OPNsense LAN (10.10.10.1)
-↓
-Lab Network (10.10.10.x)
-├── Ubuntu/Splunk: 10.10.10.198
-└── Kali Linux:    10.10.10.132
+### Home Network (192.168.1.x)
+| Device | IP Address | Role |
+|---|---|---|
+| Home Router | 192.168.1.1 | Internet gateway |
+| Proxmox Host | 192.168.1.50 | Hypervisor |
+| OPNsense WAN | 192.168.1.214 | Firewall WAN interface |
+| Ubuntu ens19 | 192.168.1.234 | Jump host home interface |
+| MacBook | 192.168.1.163 | Management workstation |
+
+### Lab Network (10.10.10.x)
+| Device | IP Address | Role |
+|---|---|---|
+| OPNsense LAN | 10.10.10.1 | Firewall — default gateway |
+| Ubuntu ens18 | 10.10.10.198 | Splunk SIEM — jump host |
+| Kali Linux | 10.10.10.132 | Attack VM |
+
+### Traffic Flow
+```
+Internet → Home Router → OPNsense WAN
+                              ↓
+                         [FIREWALL]
+                              ↓
+                       OPNsense LAN
+                         ↙       ↘
+               Kali Linux       Ubuntu/Splunk
+            10.10.10.132        10.10.10.198
 ---
 
 ## Environment
