@@ -1,4 +1,4 @@
-# Project 05 — Network Reconnaissance Detection
+# Project 02 — Network Reconnaissance Detection
 
 ## Overview
 
